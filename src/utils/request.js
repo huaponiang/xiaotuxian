@@ -7,7 +7,7 @@ import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
 
-export const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net/'
+export const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net'
 const instance = axios.create({
   baseURL,
   timeout: 5000
@@ -26,7 +26,7 @@ instance.interceptors.request.use(
   err => { return Promise.reject(err) } // 拦截失败的处理
 )
 // 相应拦截器 response
-instance.interceptors.response.use(res => { res.data },
+instance.interceptors.response.use(res => res.data,
   // 取出结果中的data数据，将来调接口的时候拿到的就是后台的数据
   err => {
     if (err.response && err.response.status === 401) { // 401 状态码
