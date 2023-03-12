@@ -2,7 +2,17 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 路由规则
 const routes = [
-
+  {
+    path: '/',
+    // redirect: '/',
+    component: () => import('@/views/Layout'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/home')
+      }
+    ]
+  }
 ]
 
 // vue2是使用 new vueRouter({}) 创建路由
